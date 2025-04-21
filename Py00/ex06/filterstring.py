@@ -25,7 +25,7 @@ def test_input(s: str, n: int):
     # print("ft_filter result list:", tuple(ft_filter_result))
     #
     # Real Test
-    print(list(ft_filter(lambda str: len(str) >= n, s.split(' '))))
+    print(list(ft_filter(lambda str: len(str) >= n, s.split(None))))
 
 
 def main():

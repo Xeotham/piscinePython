@@ -8,7 +8,7 @@ def whatis(number : int):
 try:
 	assert len(argv) > 1, ""
 	assert len(argv) <= 2, "AssertionError: more than one argument is provided"
-	assert argv[1].isdigit() == True, "AssertionError: argument is not an integer"
+	assert argv[1].isdigit() == True or (argv[1].startswith(('+', '-')) and argv[1][1:].isdigit()), "AssertionError: argument is not an integer"
 	whatis(int(argv[1]))
 except AssertionError as msg:
 	if (msg.args[0]):

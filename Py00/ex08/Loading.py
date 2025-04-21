@@ -40,25 +40,17 @@ def get_color(percent: int) -> str:
 def create_bar(advancement: int, base: int) -> str:
     """create_bar(advancement: int, base: int) --> str"""
     loading: str = "▏▎▍▌▋▊▉█"
-    i: int = 0
     percent: int = ((100 * advancement) / base).__floor__()
-    bar: str = ""
-    for loop in range(len(str(percent)), 3):
-        bar += ' '
-    bar += str(percent) + "%["
-    bar_len: int = (get_terminal_size() - len(bar)
-                    - 1 - len(f"\x1b[0m]{advancement}/{base}"))
+    bar: str = f"{percent:3}%["
+    bar_len: int = get_terminal_size()
     if percent < 100:
         bar += get_color(percent)
     else:
         bar += "\x1b[38;2;0;255;0m"
-    for loop in range(0, ((bar_len * advancement) / base).__floor__()):
-        bar += "█"
-        i += 1
+    bar += "█" * ((bar_len * advancement) / base).__floor__()
     bar += loading[((advancement * (bar_len * 8)) / base % 8).__floor__()]
-    for loop in range(i, bar_len):
-        bar += " "
-    bar += f"\x1b[0m\b]{advancement}/{base}"
+    bar += " " * (bar_len - ((bar_len * advancement) / base).__floor__())
+    bar += f"\x1b[0m\b]{advancement:{len(base.__str__())}}/{base}"
     return bar
 
 

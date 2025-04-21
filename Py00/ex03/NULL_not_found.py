@@ -8,7 +8,7 @@ def NULL_not_found(object: any) -> int:
 			print("Zero:", end=' ')
 		elif (isinstance(object, str)):
 			print("Empty:", end=' ')
-		elif (isinstance(object, float)):
+		elif (isinstance(object, float) and object != object):
 			print("Cheese:", end=' ')
 		print(object, type(object))
 		return 0

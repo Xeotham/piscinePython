@@ -2,7 +2,7 @@ def all_thing_is_obj(object: any) -> int:
 
     if (isinstance(object, (str, list, tuple, set, dict))):
         if (isinstance(object, str)):
-            print(object, " is in the kitchen :", end=" ")
+            print(object, "is in the kitchen :", end=" ")
         elif (isinstance(object, list)):
             print("List :", end=" ")
         elif (isinstance(object, tuple)):

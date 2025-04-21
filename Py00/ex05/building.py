@@ -24,12 +24,25 @@ ex:
     print(sum(1 for c in string if c.isdigit()), "digits")
 
 
+def getInput() -> str:
+    """getInput() -> str"""
+    try:
+        arg: str = input()
+        return arg
+    except EOFError:
+        return getInput()
+
+
 def main():
     try:
-        assert len(argv) > 1,   "You should provide a string."
-        assert len(argv) == 2,  "Invalid number of arguments."
-        assert argv[1] is not None, "You should provide a string."
-        scan_args(argv[1])
+        arg: str = ""
+        if (len(argv) <= 1):
+            print("What is the text to count?")
+            arg = getInput()
+        else:
+            assert len(argv) == 2, "Invalid number of arguments."
+            arg = argv[1]
+        scan_args(arg)
 
     except AssertionError as msg:
         if msg.args[0]:
