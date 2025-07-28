@@ -23,7 +23,7 @@ def test_input(s: str, n: int):
     # print("ft_filter result:", ft_filter_result, end="\n\n")
     # print("Real filter result list:", tuple(r_filter_result), end="\n")
     # print("ft_filter result list:", tuple(ft_filter_result))
-    #
+
     # Real Test
     print(list(ft_filter(lambda str: len(str) >= n, s.split(None))))
 
@@ -32,7 +32,8 @@ def main():
     try:
         assert len(argv) == 3, err_msg()
         assert argv[2].isdigit() is True, err_msg()
-        # print(ft_filter.__doc__) # Test for ft_filter.__doc__
+        # print(ft_filter.__doc__, "\n")  # Test for ft_filter.__doc__
+        # print(filter.__doc__)
         test_input(argv[1], int(argv[2]))
     except AssertionError as msg:
         if msg.args[0]:

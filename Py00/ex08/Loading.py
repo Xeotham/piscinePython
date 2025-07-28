@@ -6,13 +6,13 @@
 
 def get_terminal_size() -> int:
     """get_terminal_size() -> int"""
-    # # Get the file descriptor for stdout
+    # Get the file descriptor for stdout
     # fd = os.open(os.ctermid(), os.O_RDONLY)
     # try:
     #     # Get the terminal size using an ioctl call
     #     size = fcntl.ioctl(fd, termios.TIOCGWINSZ, '1234')
     #     size = struct.unpack('hh', size)
-    #     size = size[1]
+    #     size = size[1] - 15
     # except Exception:
     #     size = 80 # Default size if unable to get actual size
     # finally:
@@ -38,7 +38,7 @@ def get_color(percent: int) -> str:
 
 
 def create_bar(advancement: int, base: int) -> str:
-    """create_bar(advancement: int, base: int) --> str"""
+    """create_bar(advancement: int, base: int) -> str"""
     loading: str = "▏▎▍▌▋▊▉█"
     percent: int = ((100 * advancement) / base).__floor__()
     bar: str = f"{percent:3}%["
@@ -57,7 +57,6 @@ def create_bar(advancement: int, base: int) -> str:
 def ft_tqdm(lst: range) -> None:
     """ft_tqdm(lst: range) --> None"""
     for i, elem in enumerate(lst):
-
         bar: str = create_bar(i + 1, len(lst))
         i += 1
         print(bar, end='\r')

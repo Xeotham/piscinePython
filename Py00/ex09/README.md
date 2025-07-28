@@ -1,2 +1,1 @@
-# ft_package_mhaouas
-This package is the result of mhaouas' ninth exercice of the first day of the Python Pool from the 42 school.
+This package is an exercise for the project "Python for Data Science".

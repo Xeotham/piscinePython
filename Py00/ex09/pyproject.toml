@@ -1,13 +1,14 @@
 [build-system]
-requires = ["hatchling"]
+requires = ["hatchling >= 1.26"]
 build-backend = "hatchling.build"
+
 [project]
 name = "ft_package"
 version = "0.0.1"
 authors = [
   { name="mhaouas", email="mhaouas@student.42angouleme.fr" },
 ]
-description = "ft_package for the ex09 of the day00 for the Python Pool of 42 School."
+description = "Exercise for Python for Data Science's Swimming Pool"
 readme = "README.md"
 requires-python = ">=3.10"
 classifiers = [
@@ -19,7 +20,3 @@ license-files = ["LICEN[CS]E*"]
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/ft_package"]
-
-[project.urls]
-Homepage = "https://github.com/pypa/sampleproject"
-Issues = "https://github.com/pypa/sampleproject/issues"
