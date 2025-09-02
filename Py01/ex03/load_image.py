@@ -3,7 +3,14 @@ from numpy import array
 
 
 def err_msg(err: int) -> str:
-    """err_msg(err: int) -> str"""
+    """Return an error message.
+
+    Parameters:
+        err (int): Index of the error message.
+
+    Return:
+        str: Error Message
+    """
     errs = ["Lists aren't the same size.",
             "Value aren't of the right type.",
             "File not found.",
@@ -12,12 +19,17 @@ def err_msg(err: int) -> str:
 
 
 def ft_load(path: str) -> array:
-    """ft_load(path: str) -> array"""
+    """Load an image.
+
+    Parameters:
+        path (str): path of the image.
+
+    Return:
+        array: Image Loaded as an Image.
+    """
     try:
         assert isinstance(path, str), err_msg(1)
         img = Image.open(path)
-        assert img != FileNotFoundError, err_msg(2)
-        assert img != UnidentifiedImageError, err_msg(3)
         arr = array(img)
         print("The shape of image is:", arr.shape)
         return arr
@@ -25,4 +37,10 @@ def ft_load(path: str) -> array:
         msg = str(msg)
         if msg:
             print(msg)
+        return None
+    except FileNotFoundError:
+        print(err_msg(2))
+        return None
+    except UnidentifiedImageError:
+        print(err_msg(3))
         return None
